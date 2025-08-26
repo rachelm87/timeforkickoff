@@ -18,3 +18,20 @@ Hackathon Requirements:
 - Relational Databases (PostgreSQL); note we don't need an online database as the API does it for us
 - API *MUST 
 
+
+
+Folder Structure:
+
+
+DBInfo #files related to the database
+- Football.Sql #PGAdmin SQL File
+- db_connection.py #code to connect to Postgres (public)
+
+CodeInfo #files related to the python code
+- main.py #where all of our code is stored
+
+connection.py - #the private connection details
+.gitignore #includes a reference to ignore uploading connection.py
+requirements.txt #list of all the packages required
+README.md #description of timeforkickoff
+
