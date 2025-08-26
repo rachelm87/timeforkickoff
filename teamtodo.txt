@@ -1,0 +1,20 @@
+Actions Required:
+
+1. Set up GitHub and Folder Structure - Rachel
+2. Test API to determine functionalities - Renata
+3. Submit Concept to Juliana / Fill out Table - Rachel
+4. Create Code - 
+5. Set Up Database Functionalities
+6. Create Video - 
+7. Create a requirements.txt FILE [on the terminal, run py -m pip freeze -> requirements.txt]
+8. Push Everything to GitHub!
+9. Present on Thursday - Both
+
+
+
+Hackathon Requirements: 
+- Must incorporporate Virtual Environment
+- Python OOP
+- Relational Databases (PostgreSQL); note we don't need an online database as the API does it for us
+- API *MUST 
+
