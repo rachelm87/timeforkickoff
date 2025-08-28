@@ -5,7 +5,7 @@ Time For Kickoff! is a small, beginner-friendly tool that shows upcoming footbal
 Features
 Pulls today’s fixtures from API-Sports (API-Football)
 Converts kickoff times to a chosen timezone (default: Europe/Vienna)
-Stores users (name, email, favorite team, outreach consent)
+Stores new users (name, email, favorite team, outreach okay) to table of users
 Saves fixtures to JSON and inserts them into PostgreSQL
 Simple demo queries: “tonight only”, “users who like this match”, “most popular teams”
 Console output in a readable format (for example: 28/08/2025 8PM: Fiorentina vs Polessya (UEFA Europa Conference League))
@@ -28,32 +28,7 @@ py -m venv .venv
 .venv\Scripts\Activate.ps1
 3) Install dependencies
 pip install -r requirements.txt
-4) Create the database and tables
-Create a database (for example hackathon), then run this SQL in pgAdmin or psql:
-CREATE TABLE IF NOT EXISTS users (
-  id SERIAL PRIMARY KEY,
-  first_name    TEXT NOT NULL,
-  last_name     TEXT NOT NULL,
-  email         TEXT UNIQUE NOT NULL,
-  favorite_team TEXT NOT NULL,
-  country       TEXT,
-  outreach_okay BOOLEAN DEFAULT FALSE
-);
 
-CREATE TABLE IF NOT EXISTS matches (
-  id SERIAL PRIMARY KEY,
-  date        DATE NOT NULL,   -- e.g., 2025-08-28
-  time        TEXT NOT NULL,   -- e.g., '8PM' or '8:30PM' (normalized by script)
-  country     TEXT,
-  league      TEXT,
-  logo_league TEXT,
-  home_team   TEXT,
-  logo_home   TEXT,
-  away_team   TEXT,
-  logo_away   TEXT,
-  score_home  TEXT,            -- '-' for not started
-  score_away  TEXT
-);
 5) Configure credentials
 Create two files:
 connection.py (project root)
@@ -76,8 +51,8 @@ from connection import API_KEY
 python CodeInfo/main.py
 On first run it will:
 Print API status (remaining daily calls)
-Seed dummy users (skips duplicates by email)
-Fetch today’s fixtures (optionally “tonight only”)
+create fake users hardcoded (skips duplicates by email)
+Fetch today’s fixtures (optionally “today only”)
 Save to footballdata.json
 Insert into matches
 Read back and print a sample
